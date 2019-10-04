@@ -8,8 +8,9 @@ BASE_PATH = '/Users/lalitkumar.behera/code/LM/Android_app_v2' \
 # territory = ["ae", "sa", "bh", "kw"]
 # concept = ["homecentre", "centrepoint", "homebox", "babyshop", "lifestyle", "max", "shoemart", "splash"]
 # ---------------------------------------
-concept = ["splash", "lifestyle"]
-tDict = {"ae": "<b>Free shipping </b>- on orders above AED 63700"}
+concept = ["splash", "lifestyle"]  # where you want to change the message.
+tDict = {"ae": "<b>Free shipping </b>- on orders above AED 63700"}  # what is the message you want
+# to change and which concept.
 
 with open(BASE_PATH, 'r') as f:
     config = json.load(f)
