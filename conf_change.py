@@ -26,12 +26,10 @@ for t in tDict:
     print(t + "------------------")
     for c in concept:
         swap_concept()
-        y = config[NODE_HOME_MESSAGES][t][c][0][NODE_MESSAGE]
-        print(y)
+        print(t + " " + c + " Old: " + config[NODE_HOME_MESSAGES][t][c][0][NODE_MESSAGE])
         config[NODE_HOME_MESSAGES][t][c][0][NODE_MESSAGE] = tDict[t]
-
+        print(t + " " + c + " New: " + config[NODE_HOME_MESSAGES][t][c][0][NODE_MESSAGE])
         jsonFile = open(BASE_PATH, "w+")
         jsonFile.write(json.dumps(config))
         jsonFile.close()
-
     print("------------------")
