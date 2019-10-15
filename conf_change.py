@@ -2,14 +2,13 @@ import json
 
 NODE_HOME_MESSAGES = "homemessages"
 NODE_MESSAGE = "message"
-BASE_PATH = '/Users/lalitkumar.behera/code/LM/Android_app_v2' \
-            + '/android_uat_appconfig/android/landmark/config_en_september.json'
+BASE_PATH = '/Users/lalitkumar.behera/code/LM/android_config/android/landmark/config_en_6.21.json'
 # ---------------------------------------
 # territory = ["ae", "sa", "bh", "kw"]
 # concept = ["homecentre", "centrepoint", "homebox", "babyshop", "lifestyle", "max", "shoemart", "splash"]
 # ---------------------------------------
-concept = ["splash", "lifestyle"]  # where you want to change the message.
-tDict = {"ae": "<b>Free shipping </b>- on orders above AED 63700"}  # what is the message you want
+concept = ["babyshop"]  # where you want to change the message.
+tDict = {"sa": "<b>Free shipping </b>- on orders above SAR 100"}  # what is the message you want
 # to change and which concept.
 
 with open(BASE_PATH, 'r') as f:
@@ -29,7 +28,7 @@ for t in tDict:
         print(t + " " + c + " Old: " + config[NODE_HOME_MESSAGES][t][c][0][NODE_MESSAGE])
         config[NODE_HOME_MESSAGES][t][c][0][NODE_MESSAGE] = tDict[t]
         print(t + " " + c + " New: " + config[NODE_HOME_MESSAGES][t][c][0][NODE_MESSAGE])
-        jsonFile = open(BASE_PATH, "w+")
-        jsonFile.write(json.dumps(config))
+        jsonFile = open(BASE_PATH, "w+", encoding="utf-8")
+        jsonFile.write(json.dumps(config, ensure_ascii=False))
         jsonFile.close()
     print("------------------")
