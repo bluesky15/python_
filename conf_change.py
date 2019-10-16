@@ -3,31 +3,22 @@ import json
 NODE_HOME_MESSAGES = "homemessages"
 IMG_NODE = "image"
 NODE_MESSAGE = "message"
-BASE_PATH = "/Users/lalitkumar.behera/code/LM/android_config/android/landmark/config_{}_6.{}.json"
-# ---------------------------------------
-# territory = ["ae", "sa", "bh", "kw"]
-# concept = ["homecentre", "centrepoint", "homebox", "babyshop", "lifestyle", "max", "shoemart", "splash"]
-# ---------------------------------------
+ABS_PATH = "/Users/lalitkumar.behera/code/LM/android_config/android/landmark/"
+BASE_PATH = ABS_PATH + "config_{}_6.{}.json"
 types = ["ar", "en"]
 allPaths = []
 
 
-def gen_file_path(lang):
+# ---------------------------------------
+# territory = ["ae", "sa", "bh", "kw"]
+# concept = ["homecentre", "centrepoint", "homebox", "babyshop", "lifestyle", "max", "shoemart", "splash"]
+# ---------------------------------------
+
+def gen_file_path(lang_type):
     global i
     initial_index = 14
     for i in range(8):
-        allPaths.append(BASE_PATH.format(lang, initial_index + i), )
-
-
-concept = ["babyshop"]  # where you want to change the message.
-dict_ar = {"ae": "خصم إضافي 10% لحاملي بطاقات بنك دبي الإمارات الوطني",
-           "bh": " 9خصم إضافي 10% لحاملي بطاقات بنك دبي الإمارات الوطني"}  # what is the message you want
-
-dict_en = {"ae": "english",
-           "bh": " english 77"}  # what is the message you want
-
-
-# to change and which concept.
+        allPaths.append(BASE_PATH.format(lang_type, initial_index + i), )
 
 
 def swap_concept():
@@ -35,6 +26,14 @@ def swap_concept():
     if t == "bh" and c == "babyshop":
         c = "mothercare"
 
+
+concept = ["babyshop"]  # where you want to change the message.
+dict_ar = {"ae": "new message in arabic for uae",
+           "bh": "new message in arabic for bh"}
+# what is the message you want to change
+# to change and which concept.
+dict_en = {"ae": "new message in english for uae ",
+           "bh": " new message in english for bh"}
 
 for lang in types:
     gen_file_path(lang)
